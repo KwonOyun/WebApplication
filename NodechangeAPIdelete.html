@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<ul>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li id="target">JavaScript</li>
+</ul>
+<input type="button" onclick="replace();" value="replace" >
+<input type="button" onclick="callRemoveChild();" value="removeChild()" />
+<script>
+	function replace(){
+		var a = document.createElement('a');
+		a.setAttribute('href', 'http://naver.com');
+		a.appendChild(document.createTextNode('naver.com'));
+
+		var target1 = document.getElementById('target');
+		target1.replaceChild(a, target1.firstChild);
+	}
+    function callRemoveChild(){
+        var target = document.getElementById('target');
+        target.parentNode.removeChild(target);
+    }
+</script>
+</body>
+</html>

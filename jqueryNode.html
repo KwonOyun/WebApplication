@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<div class="target" style="border: 1px solid">
+    content1
+</div>
+ 
+<div class="target" style="border: 1px solid">
+    content2
+</div>
+ 
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script>
+    $('.target').before('<div>before</div>');
+    $('.target').after('<div>after</div>');
+    $('.target').prepend('<div>prepend</div>');
+    $('.target').append('<div>append</div>');
+</script>
+</body>
+</html>

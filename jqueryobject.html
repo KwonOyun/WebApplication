@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<ul>
+    <li>html</li>
+    <li>css</li>
+    <li>JavaScript</li>
+</ul>
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script>
+    console.log($('li').length);
+    console.log($('li')[0]);
+    var li = $('li');
+    for(var i=0; i<li.length; i++){
+        console.log(li[i]);
+        $(li[i]).css('color', 'red');
+    }
+</script>
+</body>
+</html>

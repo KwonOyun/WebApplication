@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<ul>
+	<li>html</li>
+	<li>css</li>
+	<li>JavaScript</li>
+</ul>
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script type="text/javascript">
+	var li = $('li');
+	li.map(function(index, elem){
+		console.log(index, elem);
+		$(elem).css('color', 'red');
+	})
+</script>
+</body>
+</html>
