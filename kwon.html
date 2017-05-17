@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>권오윤 텀프로젝트</title>
+<link rel="stylesheet" type="text/css" href="kwon.css">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>     <!--chart.js를 cdn방식으로 삽입-->
+</head>
+<body>
+	<div id="popup">                                      <!-- 모달창에 해당하는 div태그-->
+		<div align="center" style="margin-top: 250px;">
+				<img id="popprev" src="popleft.png"><img id="popimage" src="더불어민주당.png"><img id="popnext" src="popright.png"> <!--모달창에 띄워질 이미지들 -->
+		</div>  
+	</div>
+	<!-- 레이아웃은 HTML5 엘리먼트를 사용할 것 -->
+	<header>
+		<!-- Header (Menu bar) -->
+		<a name="1"></a>   <!-- 위치이동을 위한 a태그로의 name설정 -->
+		<div class="Bar">  <!-- 메뉴바에 해당 하는 div태그 -->
+			<!-- 각각 메뉴에 해당하는 텍스트를 button태그와 a태그로 감싸고 마우스오버와 마우스아웃 효과를 준다 -->
+			<a href="#1"><button class="Menu" onmouseover="this.style.background='#235F5F'" onmouseout="this.style.background='#233140'" style="margin-left: 30%">HOME</button></a>
+			<a href="#2"><button class="Menu" onmouseover="this.style.background='#235F5F'" onmouseout="this.style.background='#233140'">IMAGE SLIDE</button></a>
+			<a href="#3"><button class="Menu" onmouseover="this.style.background='#235F5F'" onmouseout="this.style.background='#233140'">INTRODUCE</button></a>
+			<a href="#4"><button class="Menu" onmouseover="this.style.background='#235F5F'" onmouseout="this.style.background='#233140'">GALLERY</button></a>
+			<a href="#4"><button class="Menu" onmouseover="this.style.background='#235F5F'" onmouseout="this.style.background='#233140'">GUEST BOOK</button></a>
+			<button onmouseover="this.style.background='#235F5F'" onmouseout="this.style.background='#233140'"> <!-- 마우스오버, 마우스아웃 효과를 준다 --> 
+			<div class="dropbtn">	<!-- 드롭다운 메뉴아이콘을 나타내는 div태그 -->
+				<div class="menuicon1"></div>
+				<div class="menuicon2"></div>
+	 			<div class="menuicon3"></div>			
+	 		</div>
+			</button>
+			<div class="dropdown">    <!-- 드롭다운을 통해 밑으로 내려올 메뉴들을 나타내는 div태그 -->
+				<div id="myDropdown" class="dropdown-content">
+				<!-- 여기 메뉴들 역시 위치이동을 위해 a태그로 감싸고 span태그로 묶고 마우스오버, 마우스아웃 효과를 준다 -->
+    				<a href="#1" ><span class="dropmenu" onmouseover="this.style.background='#235F5F'" onmouseout="this.style.background='#233140'">· HOME</span></a>
+    				<a href="#2"><span class="dropmenu" onmouseover="this.style.background='#235F5F'" onmouseout="this.style.background='#233140'">· IMAGE SLIDE</span></a>
+    				<a href="#3"><span class="dropmenu" onmouseover="this.style.background='#235F5F'" onmouseout="this.style.background='#233140'">· INTRODUCE</span></a>
+    				<a href="#4"><span class="dropmenu" onmouseover="this.style.background='#235F5F'" onmouseout="this.style.background='#233140'">· GALLERY</span></a>
+    				<a href="#5"><span class="dropmenu" onmouseover="this.style.background='#235F5F'" onmouseout="this.style.background='#233140'">· GUEST BOOK</span></a>
+  				</div>
+			</div>
+		</div>
+	</header>
+	
+	<main>
+	<!-- 이미지 슬라이드 -->
+	<a name="2"></a>  <!-- 이미지 슬라이드 위치로의 위치이동을 위한 a태그 -->
+		<div class = "ImageSlide" align="center">  <!-- 이미지슬라이드를 나타내는 div태그  -->
+			<div align="center">      <!-- 처음화면에 보일 이미지들을 나타내고 있는 div태그 -->
+				<img id="prev" src="left.png"><img id="image" src="1.png" /><img id="next" src="right.png">
+			</div>  
+			<span class="dot" style="background-color: #717171"></span>   <!-- 하단 이미지 버튼을 나타내는 span태그 -->
+  				<span class="dot"></span> 
+  				<span class="dot"></span>
+  				<span class="dot"></span> 
+  				<span class="dot"></span> 
+  				<span class="dot"></span>
+			
+		</div>
+		<a name="3"></a>   <!-- Introduce 위치로의 위치이동을 위한 a태그 -->
+		<div class = "Introduce">
+			<table border="1px solid" width="100%" height="100%">   <!-- 전체 테이블 설정 -->
+				<thead id="tablehead">    <!-- 첫번째 줄에 해당하는 thead태그 -->
+					<tr>
+						<td colspan="2"><h1>2017년 대선</h1></td>  
+					</tr>
+				</thead>
+				<tbody id="tablebody">    <!-- 두번째 줄에 해당하는 tbody태그 -->
+					<tr>
+						<td><canvas id="myChart" width="400" height="400"></canvas></td>   <!-- chart가 들어갈 canvas태그 -->
+						<!-- 주제 설명에 해당하는 내용 -->
+						<td width=50% style="word-break:break-all">조사에서 <span style="text-decoration: underline; color: red;">문 후보는 6%포인트 하락한 40.2%, 안 후보는 1.4%포인트 상승한 21.8%, 홍 후보는 5.1%포인트 상승한 22.7%, 심 후보는 1.3%포인트 하락한 7.3%, 유 후보는 0.4%포인트 상승한 5.0%포인트를 기록했다.</span> 
+
+						바른정당 집단 탈당 사태와 맞물린 홍 후보의 갑작스러운 상승세는, 비록 일간 추세지만 <프레시안> 리서치뷰 공동 조사에서 처음으로 '실버 크로스'를 기록한 결과로 나타났다. 하루 만에 홍 후보가 안 후보를 오차범위 내에서 앞선 것이다. 정당 지지도를 살펴봐도, 자유한국당이 4월 30일~5월 1일 조사에서 16.4%를 기록했던 것이, 5월 2일 조사에서 21.4%로 하루 만에 4%포인트 상승한 것으로 나타났다. 
+
+						관련해 리서치뷰 <span style="color: blue; font-weight: bold;">안일원 대표는 "사퇴는 없다"고 주장하고 있는 유 후보의 입장과 별개로, 유 후보 사퇴 가능성 등에 있어서 "(홍 후보 지지층의) 기대감 상승에 따른 '샤이 보수층'이 여론조사 적극 참여하기 시작한 듯하다"고 분석했다.</span> 
+
+						안 대표는 "문재인 후보 관련 악재는 거의 없었고, 대체로 긍정적인 이슈가 많았던 점, 5월 1일부터 바른정당 13명 집단 탈당설 및 유승민 중도 하차 가능성 관련 이슈가 전방위적으로 확산된 점 등을 고려할 때 그동안 위축되어 있던 '샤이 보수층'의 일정한 기대감이 상승하면서 2일 조사부터 이전보다 적극적으로 여론조사에 참여한 것으로 추정된다"고 분석했다. 
+
+						<span style="font-weight: bold;">정당 지지도는 더불어민주당이 39.8%, 자유한국당이 18.9%, 국민의당이 17.4%, 정의당이 10.6%, 바른정당이 5.7%를 기록했다. 지지정당 없음/기타 의견은 6.5%였다. 자유한국당은 전주보다 4.0%포인트 상승했고, 국민의당은 전주보다 0.3%포인트 하락해 정당 지지율 순위 2위와 3위가 뒤바뀌었다.</span><br><br>
+						외국에 대하여 국가를 대표하고, 행정권의 수반이 되는 최고의 통치권자인 공화국의 대통령을 뽑는 선거를 말한다. 그러나 정부 형태에 따라 대통령을 선출하는 대통령선거기관과 선거 방식도 다양하다. 예를 들어 1962년 헌법개정 후의 프랑스에서는 국민의 직접선거로 대통령을 선출하였고, 미국의 경우는 선거인단이, 터키에서는 의회에서 대통령을 선출하는 등 국가에 따라 선출 방식이 각기 다르다. 또 대통령제를 채택한 국가에서도 시기에 따라 선거 방식이 다를 수 있는데, 한국에서도 국회에 의한 간접선거와 국민 직접선거, 통일주체국민회의에 의한 간접선거 등 선거 방식에 변화가 있었다.
+
+						즉 <span style="text-decoration: underline; font-weight: bold;"> 한국에서는 2012년 제18대 대통령선거 때까지 국민의 직접선출이 12회, 국회·통일주체국민회·대통령선거인단에 의한 간접선출이 5회, 의원내각제하에서 국회에 의한 간접선출이 2회로, 총 19회의 대통령선거가 실시되었다. 제1대 대통령선거는 1948년 7월 20일 국회의 간접선거로 치러졌고, 제2대와 제3대는 직접선거로 치러졌다.</span> 1960년 3월 15일 치러진 제4대 대통령선거도 직접선거였으나 이른바 3·15부정선거로 인하여 무효 처리됨으로써 같은 해 8월 12일 민의원과 참의원 양원합동회의에 의한 간접선거로 대통령을 선출하였다. 이후 제7대까지는 직접선거로 치러졌으며, 제1대부터 제7대까지는 임기가 모두 4년이었다.
+						대통령선거 [大統領選擧]
+
+ 						</td>
+					</tr>
+				</tbody>
+				<tfoot id="tablefoot">  <!-- 세번째 줄에 해당하는 태그 -->    
+					<tr>
+						<td colspan="2">출처) Naver Google</td>
+					</tr>
+				</tfoot>
+			</table>
+		</div>
+		<a name="4"></a>  <!-- 갤러리 위치로의 이동을 위한 a태그 -->
+		<div class = "Gallery">      <!-- 갤러리를 나타내는 div태그 -->
+		<!-- 각 그림을 삽입 -->
+		 <div class="party"><img src="x.png" class="close-icon"><div class="explain">더불어민주당</div><img class="partyimg" src="더불어민주당.png"></div>
+		 <div class="party"><img src="x.png" class="close-icon"><div class="explain">자유한국당</div><img class="partyimg" src="자유한국당.png"></div>
+		 <div class="party"><img src="x.png" class="close-icon"><div class="explain">국민의당</div><img class="partyimg" src="국민의당.png"></div>
+		 <div class="party"><img src="x.png" class="close-icon"><div class="explain">바른정당</div><img class="partyimg" src="바른정당.png"></div>
+		 <div class="party"><img src="x.png" class="close-icon"><div class="explain">정의당</div><img class="partyimg" src="정의당.png"></div>
+		</div>
+
+		<a name="5"></a>   <!-- 방명록 위치로의 이동을 위한 a태그 -->
+		<div class="Guestbook" align="center">  <!-- 방명록에 해당하는 div태그 -->   
+			<div id="guestTable" align="center"></div>   
+			<table id="guest" align="center">  <!-- 방명록을 위한 테이블 생성 -->
+				<thead>
+					<tr class="guest1">
+						<td colspan="2" align="center"><h1>방명록</h1></td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="guest2">작성자</td><td><input type="text" id="text1" class="text" ></td>
+					</tr>
+					<tr>
+						<td class="guest2">내용</td><td><input type="text" id="text2" class="text" ></td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr class="guest3">
+						<td colspan="2" align="center"><input id="register" type="button" value="등록하기"></td>
+					</tr>
+				</tfoot>
+			</table>
+		</div>
+	</main>
+	<footer>
+		<span>Chungnam.univ   201302362</span>  권오윤   oyoon33@gmail.com
+	</footer>
+	<script type="text/javascript" src="kwon.js"></script>
+	<script>reload();</script>
+		
+
+</body>
+
+
+</html>
